@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - run: pip download pydevd-pycharm==${{ inputs.version }} --dest /tmp/scratch
-      - run: tar xvf /tmp/scratch/*.tar.gz
+      - run: tar xvf /tmp/scratch/*.tar.gz -C .
       - run: sed -i "s|name='pydevd-pycharm'|name='pydevd-pycharm-wheels'|g" setup.py
       - run: sed -i "s|url='https://github.com/JetBrains/intellij-community'|https://github.com/thejcannon/pydevd-pycharm-wheels|g" setup.py
       - run: sed -i "s|long_description=README|long_description='pydevd-pycharm uploaded with wheels.|g' setup.py
@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: pip download pydevd-pycharm==${{ inputs.version }} --dest /tmp/scratch
-      - run: tar xvf /tmp/scratch/*.tar.gz
+      - run: tar xvf /tmp/scratch/*.tar.gz -C .
       - run: sed -i "s|name='pydevd-pycharm'|name='pydevd-pycharm-wheels'|g" setup.py
       - run: sed -i "s|url='https://github.com/JetBrains/intellij-community'|https://github.com/thejcannon/pydevd-pycharm-wheels|g" setup.py
       - run: sed -i "s|long_description=README|long_description='pydevd-pycharm uploaded with wheels.|g' setup.py
