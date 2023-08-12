@@ -24,7 +24,7 @@ jobs:
       - run: tar xvf /tmp/scratch/*.tar.gz --strip-components=1
       - run: sed -i "s|name='pydevd-pycharm'|name='pydevd-pycharm-wheels'|g" setup.py
       - run: sed -i "s|url='https://github.com/JetBrains/intellij-community'|https://github.com/thejcannon/pydevd-pycharm-wheels|g" setup.py
-      - run: sed -i "s|long_description=README|long_description='pydevd-pycharm uploaded with wheels.|g' setup.py
+      - run: sed -i "s|long_description=README|long_description='pydevd-pycharm uploaded with wheels.'|g" setup.py
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.15.0
@@ -43,7 +43,7 @@ jobs:
       - run: tar xvf /tmp/scratch/*.tar.gz --strip-components=1
       - run: sed -i "s|name='pydevd-pycharm'|name='pydevd-pycharm-wheels'|g" setup.py
       - run: sed -i "s|url='https://github.com/JetBrains/intellij-community'|https://github.com/thejcannon/pydevd-pycharm-wheels|g" setup.py
-      - run: sed -i "s|long_description=README|long_description='pydevd-pycharm uploaded with wheels.|g' setup.py
+      - run: sed -i "s|long_description=README|long_description='pydevd-pycharm uploaded with wheels.'|g" setup.py
 
       - name: Build sdist
         run: pipx run build --sdist
