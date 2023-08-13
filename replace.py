@@ -27,5 +27,9 @@ contents = contents.replace(
   "long_description=README",
   "long_description='pydevd-pycharm uploaded with wheels.'",
 )
+contents = contents.replace(
+    "import sys",
+    "import sys; sys.path.append("")",
+)
 
 setup_py.write_text(contents)
