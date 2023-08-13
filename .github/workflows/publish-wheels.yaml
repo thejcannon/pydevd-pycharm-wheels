@@ -22,8 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: pip download pydevd-pycharm==${{ inputs.version }}
-      - run: tar xvf $(find -name *.tar.gz) --strip-components=1
-      - run: python replace.py && rm replace.py
+      - run: python replace.py ${{ inputs.version }} && rm replace.py
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.15.0
@@ -40,8 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: pip download pydevd-pycharm==${{ inputs.version }}
-      - run: tar xvf $(find -name *.tar.gz) --strip-components=1
-      - run: python replace.py && rm replace.py
+      - run: python replace.py ${{ inputs.version }} && rm replace.py
 
       - name: Build sdist
         run: pipx run build --sdist
