@@ -29,7 +29,7 @@ contents = contents.replace(
 )
 contents = contents.replace(
     "import sys",
-    "import sys; sys.path.append("")",
+    "import sys; sys.path.append('')",
 )
 
 setup_py.write_text(contents)
