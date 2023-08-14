@@ -12,4 +12,4 @@ before-build = "pushd pydevd_attach_to_process/linux_and_mac && ./compile_mac.sh
 [tool.cibuildwheel.windows]
 before-build = "pushd pydevd_attach_to_process/windows && cmd /c compile_windows.bat && popd"
 [tool.cibuildwheel.linux]
-before-build = "apt-get install libc6-dev-i386; pushd pydevd_attach_to_process/linux_and_mac && if [ \"$(uname -m)\" = \"aarch64\" ]; then ./compile_linux_aarch64.sh; else ./compile_linux.sh; fi && popd"
+before-build = "apt-get install libc6-dev-i386 libx32gcc-4.8-dev g++-multilib && pushd pydevd_attach_to_process/linux_and_mac && if [ \"$(uname -m)\" = \"aarch64\" ]; then ./compile_linux_aarch64.sh; else ./compile_linux.sh; fi && popd"
