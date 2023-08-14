@@ -59,7 +59,7 @@ contents = contents.replace(
     """\
     args_with_binaries['distclass'] = BinaryDistribution
     args_with_binaries['ext_modules'] = args_with_binaries.get('ext_modules', []) + [
-      Extension('pydevd_attach_to_process', ['pydevd_attach_to_process/dummy.c'])
+        Extension('pydevd_attach_to_process', ['pydevd_attach_to_process/dummy.c'])
     ]
     setup(**args_with_binaries)
 """,
