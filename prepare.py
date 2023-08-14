@@ -45,19 +45,30 @@ contents = contents.replace(
                 Extension('_pydevd_frame_eval.pydevd_frame_evaluator', ['_pydevd_frame_eval/%s.c' % frame_eval_extension_name,])
             ]
         ))
-    """,
+""",
     """\
         args_with_binaries["ext_modules"].append(
             # In this setup, don't even try to compile with cython, just go with the .c file which should've
             # been properly generated from a tested version.
             Extension('_pydevd_frame_eval.pydevd_frame_evaluator', ['_pydevd_frame_eval/%s.c' % frame_eval_extension_name,])
         )
-    """,
+""",
+)
+contents.replace(
+    """\
+    setup(**args_with_binaries)
+""",
+    """\
+    args_with_binaries['distclass'] = BinaryDistribution
+    args_with_binaries['ext_modules'] = args_with_binaries.get('ext_modules', []) + [
+      Extension('pydevd_attach_to_process', ['pydevd_attach_to_process/dummy.c'])
+    ]
+    setup(**args_with_binaries)
+""",
 )
 
 
 setup_py.write_text(contents)
 
 pathlib.Path("VERSION").write_text(sys.argv[1] + "\n")
-
-
+pathlib.Path("pydevd_attach_to_process/dummy.c").write_text("")
