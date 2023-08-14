@@ -54,10 +54,8 @@ contents = contents.replace(
         )
 """,
 )
-contents.replace(
-    """\
-    setup(**args_with_binaries)
-""",
+contents = contents.replace(
+    """setup(**args_with_binaries)""",
     """\
     args_with_binaries['distclass'] = BinaryDistribution
     args_with_binaries['ext_modules'] = args_with_binaries.get('ext_modules', []) + [
