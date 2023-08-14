@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - run: curl -L https://github.com/JetBrains/intellij-community/archive/refs/tags/pycharm/${{ inputs.version }}.tar.gz > pycharm.tar.gz
+      - run: curl -L https://github.com/JetBrains/intellij-community/archive/refs/tags/pycharm/${{ inputs.version }}.tar.gz -o pycharm.tar.gz
       - run: python3 prepare.py ${{ inputs.version }}
 
       - name: Build wheels
@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: curl -L https://github.com/JetBrains/intellij-community/archive/refs/tags/pycharm/${{ inputs.version }}.tar.gz > pycharm.tar.gz
+      - run: curl -L https://github.com/JetBrains/intellij-community/archive/refs/tags/pycharm/${{ inputs.version }}.tar.gz -o pycharm.tar.gz
       - run: python3 prepare.py ${{ inputs.version }}
 
       - name: Build sdist
