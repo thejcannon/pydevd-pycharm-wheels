@@ -66,7 +66,10 @@ contents.replace(
     setup(**args_with_binaries)
 """,
 )
-
+contents = contents.replace(
+    "# Compile failed: just setup without compiling cython deps.",
+    "raise",
+)
 
 setup_py.write_text(contents)
 
