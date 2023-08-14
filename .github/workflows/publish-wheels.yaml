@@ -26,10 +26,6 @@ jobs:
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.15.0
-        env:
-          BEFORE_BUILD_MACOS: "pydevd_attach_to_process/linux_and_mac/compile_mac.sh"
-          BEFORE_BUILD_WINDOWS: "pydevd_attach_to_process/windows/compile_windows.bat"
-          BEFORE_BUILD_LINUX: "if [ \"$(uname -m)\" = \"aarch64\" ]; then; pydevd_attach_to_process/linux_and_mac/compile_linux_aarch64.sh; else pydevd_attach_to_process/linux_and_mac/compile_linux.sh; fi"
 
       - uses: actions/upload-artifact@v3
         with:
